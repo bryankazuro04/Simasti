@@ -1,0 +1,29 @@
+<?php 
+namespace App\Models;
+
+use CodeIgniter\Model;
+
+class UserModel extends Model{
+  protected $table = 'user';
+  protected $primaryKey = 'id';
+  protected $useTimesstamps = true;
+  protected $allowedFields = [
+    'nama_user',
+    'unit_kerja',
+    'no_telepon',
+    'email',
+    'password',
+    'jabatan'
+  ];
+  protected $skipValidation = true;
+
+  public function getUser($id = false, $nama_user = false){
+    if($id == false){
+      return $this->findAll();
+    }
+    return $this->where(['id' => $id])->first();
+    return $this->where(['nama_user' => $nama_user]);
+  }
+}
+
+?>
