@@ -108,6 +108,7 @@ h6,
   background-color: var(--bs-gray-400);
   font-family: var(--font-header);
   transition: 0.5s;
+  overflow: hidden;
 }
 
 .sidebar__navigation .wrap__navigation {
@@ -127,10 +128,8 @@ h6,
   border-color: var(--bs-purple);
 }
 
-.sidebar__navigation.hide,
-.sidebar__navigation.hide li {
+.sidebar__navigation.hide {
   width: 4rem;
-  overflow: hidden;
 }
 
 .sidebar__navigation .navigation__content {
@@ -148,34 +147,30 @@ h6,
   margin-top: 0;
 }
 
+.sidebar__navigation .navigation__content .section__list:not(:last-child) {
+  margin-bottom: 1.25rem;
+}
+
 .sidebar__navigation .navigation__content .copyright {
   margin: 1rem;
   font-family: var(--font-copyright);
   position: absolute;
   bottom: 0;
+  transition: 0.2s;
+  white-space: pre-wrap;
 }
 
 .sidebar__navigation.hide .navigation__content .copyright {
-  display: none;
+  opacity: 0;
+  white-space: nowrap;
 }
 
-.sidebar__navigation
-  .section__list
-  :is(.section__list-header .section__list-title, span, .section__list-logout
-    span) {
-  display: inline-block;
+.sidebar__navigation .section__list :is(.section__list-header, .section__list-profile a, .section__list-logout) {
+  display: flex;
+  gap: 1rem;
 }
 
-.sidebar__navigation.hide
-  .section__list
-  :is(.section__list-header .section__list-title, span, .section__list-logout
-    span) {
-  display: none;
-}
-
-.sidebar__navigation
-  .section__list
-  :is(.transaction-section, .user-section, .contract-section) {
+.sidebar__navigation .section__list :is(.transaction-section, .user-section, .contract-section) {
   margin-left: 2.5rem;
   display: flex;
   flex-direction: column;
@@ -192,11 +187,7 @@ h6,
   font-size: inherit;
 }
 
-.sidebar__navigation
-  .navigation__content
-  .section__list
-  .section__list-item
-  a:hover {
+.sidebar__navigation .navigation__content .section__list .section__list-item a:hover {
   color: rgb(255, 0, 0);
 }
 
@@ -204,34 +195,21 @@ h6,
   transition: 0.25s;
 }
 
-.sidebar__navigation
-  .navigation__content
-  .section__list.hide
-  .section__list-item {
+.sidebar__navigation .navigation__content .section__list.hide .section__list-item {
   overflow: hidden;
   height: 0;
 }
 
-.sidebar__navigation
-  .navigation__content
-  .section__list.show
-  .section__list-item {
+.sidebar__navigation .navigation__content .section__list.show .section__list-item {
   overflow: visible;
   height: 100%;
 }
 
-.sidebar__navigation
-  .navigation__content
-  .section__list
-  .section__list-header
-  .icon {
+.sidebar__navigation .navigation__content .section__list .section__list-header .icon {
   min-width: 1rem;
 }
 
-.sidebar__navigation
-  .navigation__content
-  .section__list
-  .section__list-logout:hover {
+.sidebar__navigation .navigation__content .section__list .section__list-logout:hover {
   color: red;
 }
 
@@ -388,19 +366,12 @@ h6,
     padding-left: 10rem;
   }
 
-  .sidebar__navigation
-    .navigation__content
-    .section__list
-    :is(.section__list-title, span, .section__list-header .icon),
+  .sidebar__navigation .navigation__content .section__list :is(.section__list-title, span, .section__list-header .icon),
   .arrow {
     font-size: calc(var(--mobile-font-size) + 0.5vw);
   }
 
-  .sidebar__navigation
-    .navigation__content
-    .section__list
-    .section__list-header
-    .icon {
+  .sidebar__navigation .navigation__content .section__list .section__list-header .icon {
     min-width: 1.5rem;
   }
 }
