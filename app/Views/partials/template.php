@@ -23,6 +23,8 @@
     <!-- jquery -->
     <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 
+    <link rel="stylesheet" href="<?= base_url('./styles/bootstrap.min.css'); ?>">
+
     <!-- Styles -->
     <link rel="stylesheet" href="<?= base_url('./styles/style.css'); ?>">
 
